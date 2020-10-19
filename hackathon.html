@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/web3@0.20.5/dist/web3.min.js"></script>
+        <script type="text/javascript" language="javascript" src="SetString_abi.js"></script>
+        <!-- The generated javascript and app.js will be substituted in below -->
+        <!-- JAVASCRIPT -->
+
+        <!-- The app.css contents will be substituted in below -->
+        <!-- STYLE -->
+    </head>
+    <body>
+        <div id="txStatus"></div>
+
+        <script>
+            var setString;
+            var userAccount;
+
+            var accountInterval = setInterval(function() {
+                if (web3.eth.accounts[0] !== userAccount) {
+                    userAccount = web3.eth.accounts[0];
+                    getString(userAccount);
+                }
+            }, 100);
+
+            function startApp() {
+                var setStringAddress = "";
+                setString = new web3js.eth.Contract(setStringAddress, setStringABI);
+            }
+
+            function setString(string){
+                return setString.methods.set(string)
+                .send({from: userAccount})
+                .on("receipt",function(receipt{
+                    $("#txStatus").text("Sucessfully updated the string to " + string + "!");
+                    getStringByOwner(userAccount).then(getString);
+                }));
+            }
+
+            function getString(){
+                return setString.methods.get().call();
+            }
+
+            //Def wrong here
+            function updateValues(){
+                $("#stringValue").empty();
+                $("#stringValue").text(string);
+            }
+
+            window.addEventListener('load', function() {
+                // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+                if (typeof web3 !== 'undefined') {
+                    // Use Mist/MetaMask's provider
+                    web3js = new Web3(web3.currentProvider);
+                } else {
+                // Handle the case where the user doesn't have web3. Probably
+                // show them a message telling them to install Metamask in
+                // order to use our app.
+                 }
+                // Now you can start your app & access web3js freely:
+                startApp();
+            })
+        </script>
+        <h1>My First dApp!</h1>
+        <div>The current string is <span id = "stringValue"></span></div>
+        <!--<h1><span id="message"></span></h1> -->
+    </body>
+</html>
