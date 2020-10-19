@@ -1,11 +1,17 @@
-pragma solidity >= 0.4.0 < 0.7.0;
+pragma solidity ^0.5.10;
 
-contract SetNumber{
-    uint storednumber;
-    function set(uint x) public {
-        storednumber = x;
+contract SetString {
+    string storedString;
+
+    constructor(string memory _initstring) public {
+        storedString = _initstring;
     }
-    function get() public view returns(uint) {
-        return storednumber;
+
+    function set(string memory _string) public {
+        storedString = _string;
+    }
+
+    function get() public view returns(string memory) {
+        return storedString;
     }
 }
