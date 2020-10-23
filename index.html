@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>Register information at Blockchain</title>
+    <title>Set String dApp! Running live on the Rinkeby Testnet</title>
+
 
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
@@ -12,16 +13,26 @@
 
 <body class="container">
 
-    <h1 class="page-header">Register information at Blockchain - RSK network</h1>
+    <h1 class="page-header">Set Your Favorite Phrase!</h1>
+    <p>We started our ETH journey first by buying Ethereum over a year ago once we realized what ETH was VS BTC. We both
+        come from a finance background and have some programming experience, but never touched javascript or solidity
+        before. When the Hackathon started, we began by taking some intro tutorials on solidity. After a full week of
+        diving headfirst and trying to understand how solidity works, we decided we wanted to deploy and build a simple
+        UI to interact with our contract. This is where we hit a roadblock. The learning curve for a complete noob like
+        us, for web3.js vs solidity, was overwhelming considering our timeline to have our project submitted. We took
+        over three web3.js intro tutorials, read numerous web3 how-to's, and read through the web3.js documentations.
+        After countless hours/days of failing and trying again, we were able to deploy a working VERY simple dApp. We
+        will be furthering our web3.js skills as well as solidity through the rest of 2020' and on.
+    </p>
 
     <div class="row">
         <div>
-            <h3 class="sub-header">Set information</h3>
+            <h3 class="sub-header">Set Phrase</h3>
             <form class="form-inline" role="form">
                 <div class="form-group">
                     <table>
                         <tr>
-                            <td><label for="newInfo">Info:</label> </td>
+                            <td><label for="newInfo">Phrase:</label> </td>
                             <td>
                                 <input class="form-control" id="newInfo">
                             </td>
@@ -35,13 +46,13 @@
 
     <div class="row">
         <div>
-            <h3 class="sub-header">Get last information saved</h3>
+            <h3 class="sub-header">Get last phrase saved</h3>
             <form class="form-inline" role="form">
                 <a href="#" onclick="registerGetInfo()" class="btn btn-primary">Get</a>
                 <div class="form-group">
                     <table>
                         <tr>
-                            <td>Info:</td>
+                            <td>Phrase:</td>
                             <td>
                                 <label id="lastInfo"></label>
                             </td>
